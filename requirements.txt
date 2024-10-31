@@ -1,0 +1,7 @@
+langchain==0.0.335
+openai>=1.0,<2.0
+faiss-cpu==1.7.4
+tiktoken==0.5.1
+tk>=0.1.0
+configparser>=7.1.0
+tika>=2.6.0
