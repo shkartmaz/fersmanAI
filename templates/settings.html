@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки</title>
+</head>
+<body>
+    <h1>Настройки</h1>
+    <form action="/settings" method="post">
+        <label for="vsegpt_API_key">vsegpt.ru API key:</label>
+        <input type="text" name="vsegpt_API_key" value="{{ config.vsegpt_API_key }}"><br>
+
+        <label for="chunk_size">Размер чанка:</label>
+        <input type="text" name="chunk_size" value="{{ config.chunk_size }}"><br>
+
+        <label for="chunk_overlap">Перекрытие чанков:</label>
+        <input type="text" name="chunk_overlap" value="{{ config.chunk_overlap }}"><br>
+
+        <label for="similar_results">Количество чанков при запросе:</label>
+        <input type="text" name="similar_results" value="{{ config.similar_results }}"><br>
+
+        <label for="model_emb">Модель для эмбеддинга:</label>
+        <input type="text" name="model_emb" value="{{ config.model_emb }}"><br>
+
+        <label for="model_LLM">Языковая модель:</label>
+        <input type="text" name="model_LLM" value="{{ config.model_LLM }}"><br>
+
+        <label for="temperature">Температура:</label>
+        <input type="text" name="temperature" value="{{ config.temperature }}"><br>
+
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="/">Назад</a>
+</body>
+</html>

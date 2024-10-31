@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FersmanAI v0.1</title>
+</head>
+<body>
+    <h1>Добро пожаловать!</h1>
+    <p>Если это первый запуск программы, нажмите 'Обновить базу данных'</p>
+
+    <form action="/send_prompt" method="post">
+        <label for="prompt">Введите запрос:</label>
+        <input type="text" name="prompt" id="prompt" required>
+        <button type="submit">Отправить</button>
+    </form>
+
+    <button onclick="location.href='/update_database'">Обновить базу данных</button>
+    <button onclick="location.href='/settings'">Настройки</button>
+    <button onclick="location.href='/help'">Помощь</button>
+
+    {% if response_content %}
+    <h2>Используем следующую найденную информацию:</h2>
+    <p>{{ response_content.message_content }}</p>
+    <p><strong>YOU:</strong> {{ response_content.prompt }}</p>
+    <p><strong>LLM:</strong> {{ response_content.response }}</p>
+    {% endif %}
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
