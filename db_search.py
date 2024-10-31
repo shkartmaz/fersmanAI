@@ -5,9 +5,6 @@ from langchain.vectorstores import FAISS
 from langchain.embeddings.openai import OpenAIEmbeddings
 
 
-# place your VseGPT key here
-# os.environ["OPENAI_API_KEY"] = "sk-or-vv-abaef3de33810419220b9aab0053d4dc5801f6ee7547b50a7069722ebac88cbc"
-
 
 def run_gpt_query(system, user_query, search_db, config_data):
 

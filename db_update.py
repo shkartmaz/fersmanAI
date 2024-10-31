@@ -8,8 +8,6 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 from tika import parser
 
-# os.environ["OPENAI_API_KEY"] = "sk-or-vv-abaef3de33810419220b9aab0053d4dc5801f6ee7547b50a7069722ebac88cbc"
-
 
 def list_dif(first, second):
     return [item for item in first if item not in second]
