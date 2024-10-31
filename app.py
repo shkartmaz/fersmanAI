@@ -68,10 +68,35 @@ def send_prompt():
 
     return render_template('index.html', config=config_data, response_content=response_content)
 
+@app.route('/run_query', methods=['POST'])
+def run_query():
+    user_query = request.form['user_query']
+    config_data = get_config()
+    search_db = get_db(config_data)
+
+    message_content, response = run_gpt_query(
+        "Ты - помощник, помогающий отвечать на вопросы",
+        user_query,
+        search_db,
+        config_data
+    )
+
+    flash("Запрос выполнен.")
+    return render_template('index.html', config=config_data, response_content={'message_content': message_content, 'response': response, 'prompt': user_query})
+
+## Кто из этих двух нужен??
+
 @app.route('/update_database')
 def update_database():
     update_vector_database(get_config())
     flash("База данных обновлена")
+    return redirect(url_for('index'))
+    
+@app.route('/update_vector_database', methods=['GET'])
+def update_vector_database_route():
+    config_data = get_config()
+    message = update_vector_database(config_data)
+    flash(message)
     return redirect(url_for('index'))
 
 @app.route('/settings', methods=['GET', 'POST'])

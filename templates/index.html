@@ -8,14 +8,24 @@
 <body>
     <h1>Добро пожаловать!</h1>
     <p>Если это первый запуск программы, нажмите 'Обновить базу данных'</p>
-
+	
+	<p>Форма 1</p>
     <form action="/send_prompt" method="post">
         <label for="prompt">Введите запрос:</label>
         <input type="text" name="prompt" id="prompt" required>
         <button type="submit">Отправить</button>
     </form>
+	
+	<p>Форма 2?..</p>
+	<form action="/run_query" method="post">
+		<label for="user_query">Введите запрос:</label>
+		<input type="text" name="user_query" id="user_query" required>
+		<button type="submit">Отправить</button>
+	</form>
+
 
     <button onclick="location.href='/update_database'">Обновить базу данных</button>
+	<button onclick="location.href='/update_vector_database'">Обновить векторную базу</button>
     <button onclick="location.href='/settings'">Настройки</button>
     <button onclick="location.href='/help'">Помощь</button>
 
